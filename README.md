@@ -7,3 +7,4 @@ $ cargo test -p binary-search
 ```
 
 - [Binary Search](binary-search)
+- [Selection Sort](selection-sort)
