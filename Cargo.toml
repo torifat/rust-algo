@@ -2,6 +2,5 @@
 
 members = [
     "binary-search",
-    "selection-sort",
-    "insertion-sort"
+    "sort/*",
 ]

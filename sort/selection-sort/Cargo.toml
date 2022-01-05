@@ -1,5 +1,5 @@
 [package]
-name = "insertion-sort"
+name = "selection-sort"
 version = "0.1.0"
 edition = "2021"
 
@@ -9,3 +9,4 @@ edition = "2021"
 
 [dev-dependencies]
 rand = "0.8.4"
+pretty_assertions = { version= "1.0.0", default-features = false, features = ["alloc"] }

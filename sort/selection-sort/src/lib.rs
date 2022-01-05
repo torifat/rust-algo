@@ -1,13 +1,15 @@
 #![feature(test)]
 
-pub fn insertion_sort<T: PartialOrd>(xs: &mut [T]) {
+pub fn selection_sort<T: PartialOrd>(xs: &mut [T]) {
     let len = xs.len();
-    for i in 1..len {
-        let mut j = i;
-        while j > 0 && xs[j - 1] > xs[j] {
-            xs.swap(j - 1, j);
-            j -= 1;
+    for i in 0..len {
+        let mut min = i;
+        for j in i + 1..len {
+            if xs[j] < xs[min] {
+                min = j;
+            }
         }
+        xs.swap(i, min);
     }
 }
 
@@ -16,27 +18,28 @@ mod tests {
     extern crate test;
 
     use super::*;
+    use pretty_assertions::assert_eq;
     use rand::Rng;
     use test::Bencher;
 
     #[test]
     fn it_works_on_already_sorted_array() {
         let mut arr = [1, 2, 3];
-        insertion_sort(&mut arr);
+        selection_sort(&mut arr);
         assert_eq!(arr, [1, 2, 3]);
     }
 
     #[test]
     fn it_works_on_worse_case() {
         let mut arr = [3, 2, 1];
-        insertion_sort(&mut arr);
+        selection_sort(&mut arr);
         assert_eq!(arr, [1, 2, 3]);
     }
 
     #[test]
     fn it_works_on_average_case() {
         let mut arr = [2, 3, 1];
-        insertion_sort(&mut arr);
+        selection_sort(&mut arr);
         assert_eq!(arr, [1, 2, 3]);
     }
 
@@ -46,7 +49,7 @@ mod tests {
             .collect::<Vec<_>>()
             .try_into()
             .expect("Wrong size iterator!");
-        b.iter(|| insertion_sort(&mut arr));
+        b.iter(|| selection_sort(&mut arr));
     }
 
     #[bench]
@@ -56,7 +59,7 @@ mod tests {
             .collect::<Vec<_>>()
             .try_into()
             .expect("Wrong size iterator!");
-        b.iter(|| insertion_sort(&mut arr));
+        b.iter(|| selection_sort(&mut arr));
     }
 
     #[bench]
@@ -67,6 +70,6 @@ mod tests {
             .collect::<Vec<_>>()
             .try_into()
             .expect("Wrong size iterator!");
-        b.iter(|| insertion_sort(&mut arr));
+        b.iter(|| selection_sort(&mut arr));
     }
 }

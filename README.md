@@ -15,5 +15,6 @@ $ cargo bench -p binary-search
 ```
 
 - [Binary Search](binary-search)
-- [Selection Sort](selection-sort)
-- [Insertion Sort](insertion-sort)
+- [Selection Sort](sort/selection-sort)
+- [Insertion Sort](sort/insertion-sort)
+- [Merge Sort](sort/merge-sort)

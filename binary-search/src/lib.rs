@@ -20,6 +20,7 @@ pub fn binary_search<T: PartialOrd>(xs: &[T], x: &T) -> Option<usize> {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use pretty_assertions::assert_eq;
 
     #[test]
     fn it_returns_none_when_array_is_empty() {
