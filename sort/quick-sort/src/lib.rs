@@ -65,6 +65,13 @@ mod tests {
         assert_eq!(arr, [1, 2, 3, 7]);
     }
 
+    #[test]
+    fn it_works_with_complex_types() {
+        let mut arr = ["c", "a", "b"];
+        quick_sort(&mut arr);
+        assert_eq!(arr, ["a", "b", "c"]);
+    }
+
     #[bench]
     fn bench_best_case(b: &mut Bencher) {
         let mut arr: [i32; 1000] = (1..=1000)

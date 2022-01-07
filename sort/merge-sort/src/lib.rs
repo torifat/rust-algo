@@ -90,6 +90,51 @@ mod tests {
         assert_eq!(arr, [1, 2, 3, 7]);
     }
 
+    #[test]
+    fn it_works_with_complex_types() {
+        let mut arr = ["c", "a", "b"];
+        merge_sort(&mut arr);
+        assert_eq!(arr, ["a", "b", "c"]);
+    }
+
+    // merge
+    #[test]
+    fn it_can_merge_two_empty_arrays() {
+        let mut left = [0; 0];
+        let mut right = [0; 0];
+        let mut buffer = [0; 0];
+        merge(&mut left, &mut right, &mut buffer);
+        assert_eq!(buffer, []);
+    }
+
+    #[test]
+    fn it_can_merge_one_empty_array_with_one_non_empty_array() {
+        let mut left = [0; 0];
+        let mut right = [1; 1];
+        let mut buffer = [0; 1];
+        merge(&mut left, &mut right, &mut buffer);
+        assert_eq!(buffer, [1]);
+    }
+
+    #[test]
+    fn it_can_merge_two_non_empty_arrays() {
+        let mut left = [1, 2, 3];
+        let mut right = [4, 5, 6];
+        let mut buffer = [0; 6];
+        merge(&mut left, &mut right, &mut buffer);
+        assert_eq!(buffer, [1, 2, 3, 4, 5, 6]);
+    }
+
+    #[test]
+    fn it_can_merge_two_arrays_of_different_lengths() {
+        let mut left = [1, 2, 3];
+        let mut right = [4, 5];
+        let mut buffer = [0; 5];
+        merge(&mut left, &mut right, &mut buffer);
+        assert_eq!(buffer, [1, 2, 3, 4, 5]);
+    }
+
+    // Benchmarking
     #[bench]
     fn bench_best_case(b: &mut Bencher) {
         let mut arr: [i32; 1000] = (1..=1000)
