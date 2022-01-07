@@ -18,4 +18,5 @@ $ cargo bench -p binary-search
 - [Selection Sort](sort/selection-sort)
 - [Insertion Sort](sort/insertion-sort)
 - [Merge Sort](sort/merge-sort)
-- [Quick Sort](sort/quick-sort)
+- [Quick Sort](sort/quicksort)
+- [Heap Sort](sort/heap-sort)

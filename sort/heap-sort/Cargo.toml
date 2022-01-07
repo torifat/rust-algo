@@ -1,5 +1,5 @@
 [package]
-name = "quick-sort"
+name = "heap-sort"
 version = "0.1.0"
 edition = "2021"
 
