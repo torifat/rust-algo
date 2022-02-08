@@ -3,8 +3,8 @@
 use std::fmt::Debug;
 
 enum Child {
-    LEFT = 1,
-    RIGHT = 2,
+    Left = 1,
+    Right = 2,
 }
 
 fn parent(idx: usize) -> usize {
@@ -20,8 +20,8 @@ fn sift_down<T: PartialOrd + Debug>(xs: &mut [T], start: usize) {
     let end = xs.len();
     let mut root = start;
     loop {
-        let left = child(root, Child::LEFT);
-        let right = child(root, Child::RIGHT);
+        let left = child(root, Child::Left);
+        let right = child(root, Child::Right);
         let mut swap = root;
         if left < end && xs[swap] < xs[left] {
             swap = left;

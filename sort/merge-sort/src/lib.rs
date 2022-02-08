@@ -3,7 +3,7 @@
 use std::fmt::Debug;
 use std::mem::swap;
 
-fn merge<'a, T: PartialOrd>(left: &mut [T], right: &mut [T], buffer: &mut [T]) {
+fn merge<T: PartialOrd>(left: &mut [T], right: &mut [T], buffer: &mut [T]) {
     let mut left_index = 0;
     let mut right_index = 0;
     let mut buffer_index = 0;
